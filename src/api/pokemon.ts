@@ -1,0 +1,70 @@
+import { useEffect, useState } from "react";
+
+export interface Pokemon {
+    id: number;
+    name: string;
+    sprite: string;
+}
+
+interface ApiRes {
+    url: string;
+    name: string;
+}
+
+interface PokemonListRes {
+  count: number;
+  results: ApiRes[];
+}
+
+export interface PokemonProps {
+    pokemon: Pokemon;
+}
+
+function toPokemon(apiRes:  ApiRes): Pokemon {
+    const id =  parseInt(apiRes.url.split("/")[6]);
+
+    return  {
+        name: apiRes.name,
+        id: id,
+        sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+    }
+}
+
+export function usePokemonList() {
+    const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchPokemons() {
+            try {
+                const response: Response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100");
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error ! Statut : ${response.status}`);
+                }
+
+                const datas: PokemonListRes = await response.json();
+                
+                const pokemonsList: Pokemon[] = datas.results.map((res) =>
+                    toPokemon(res)
+                );
+
+                setPokemons(pokemonsList);
+                setLoading(false);
+
+                return { pokemons, loading };
+            } catch (error) {
+                console.error(`Erreur : ${error}`);
+                setLoading(false);
+
+                return null;
+            }
+            
+        }
+
+        fetchPokemons();
+
+    }, []);
+
+    return ({ pokemons, loading});
+}

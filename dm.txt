@@ -1,0 +1,6 @@
+useEffect s voir
+
+pokemon  :
+    - pokeapi.co
+    - afficher pokemon numero 1 a 100
+    - creer une carc avec une id, image, name
