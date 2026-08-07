@@ -3,7 +3,7 @@ import './App.css'
 import PokemonCard from './PokemonCard'
 
 function App() {
-  const { pokemons, loading }= usePokemonList(); 
+  const { pokemons  }= usePokemonList(); 
 
   return (
     <>
