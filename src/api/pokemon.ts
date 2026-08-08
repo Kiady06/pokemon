@@ -55,7 +55,7 @@ export function usePokemonList() {
                 console.error(`Erreur : ${error}`);
                 setLoading(false);
 
-                return null;
+                setPokemons([]);
             }
             
         }
