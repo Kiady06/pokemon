@@ -75,3 +75,24 @@ h1 {
   max-width: 1200px;     /* Évite que la grille devienne trop large sur grand écran */
   margin: 0 auto;        /* Centre le conteneur principal dans la page */
 }
+
+/* Fond plein écran */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(244, 246, 248, 0.9); /* Fond légèrement transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Image ajustée */
+.loading-image {
+  width: 200px;
+  height: auto;
+  max-width: 80vw;
+}

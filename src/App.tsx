@@ -3,7 +3,19 @@ import './App.css'
 import PokemonCard from './PokemonCard'
 
 function App() {
-  const { pokemons  }= usePokemonList(); 
+  const { pokemons, loading  }= usePokemonList(); 
+
+  if (loading) {
+    return (
+  <div className="loading-container">
+    <img 
+      className="loading-image" 
+      src="assets/Disk@1x-1.0s-200px-200px.gif" 
+      alt="loading screen" 
+    />
+  </div>
+);
+  }
 
   return (
     <>
@@ -17,7 +29,7 @@ function App() {
       }
       </div>
     </>
-  )
+  );
 }
 
 export default App
