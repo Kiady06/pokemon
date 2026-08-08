@@ -7,12 +7,15 @@ function App() {
 
   return (
     <>
+    <h1>Pokemons</h1>
+    <div className='cards-container'>
       {
         pokemons.map((onePokemon) => (
           <PokemonCard  pokemon={ onePokemon } />
         )
       )
       }
+      </div>
     </>
   )
 }
