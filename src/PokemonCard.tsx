@@ -1,12 +1,12 @@
 import type { PokemonProps } from "./api/pokemon";
 
-function PokemonCard(pokemonProps: PokemonProps) {
+function PokemonCard(pokemon: PokemonProps) {
 
     return (
         <div className="card">
-            <p className="id" >{ pokemonProps.pokemon.id }</p>
-            <img  className="sprite" src={ pokemonProps.pokemon.sprite } alt={ pokemonProps.pokemon.name } />
-            <h2 className="name" >{ pokemonProps.pokemon.name }</h2>
+            <p className="id" >{ pokemon.pokemon.id }</p>
+            <img  className="sprite" src={ pokemon.pokemon.sprite } alt={ pokemon.pokemon.name } />
+            <h2 className="name" >{ pokemon.pokemon.name }</h2>
         </div>
     );
 }
