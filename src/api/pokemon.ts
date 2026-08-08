@@ -45,9 +45,7 @@ export function usePokemonList() {
 
                 const datas: PokemonListRes = await response.json();
                 
-                const pokemonsList: Pokemon[] = datas.results.map((res) =>
-                    toPokemon(res)
-                );
+                const pokemonsList: Pokemon[] = datas.results.map(toPokemon);
 
                 setPokemons(pokemonsList);
                 setLoading(false);
