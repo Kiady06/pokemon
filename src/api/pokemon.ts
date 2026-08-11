@@ -12,7 +12,6 @@ interface ApiRes {
 }
 
 interface PokemonListRes {
-  count: number;
   results: ApiRes[];
 }
 
