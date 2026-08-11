@@ -47,13 +47,13 @@ export function usePokemonList() {
                 const pokemonsList: Pokemon[] = datas.results.map(toPokemon);
 
                 setPokemons(pokemonsList);
-                setLoading(false);
 
             } catch (error) {
                 console.error(`Erreur : ${error}`);
-                setLoading(false);
 
                 setPokemons([]);
+            } finally {
+                setLoading(false);
             }
             
         }
