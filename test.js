@@ -1,1 +1,0 @@
-console.log("https://pokeapi.co/api/v2/pokemon/25/".split("/"))
