@@ -5,6 +5,7 @@ import PokemonCard from './PokemonCard'
 function App() {
   const { pokemons, loading  }= usePokemonList(); 
 
+  // Tsy mandeha
   if (loading) {
     return (
   <div className="loading-container">
