@@ -1,6 +1,6 @@
 import { usePokemonList } from './api/pokemon'
 import './App.css'
-import PokemonCard from './PokemonCard'
+import MainPageComponent from './MainPageComponent';
 
 function App() {
   const { pokemons, loading  }= usePokemonList(); 
@@ -20,15 +20,7 @@ function App() {
 
   return (
     <>
-    <h1>Pokemons</h1>
-    <div className='cards-container'>
-      {
-        pokemons.map((onePokemon) => (
-          <PokemonCard  pokemon={ onePokemon } />
-        )
-      )
-      }
-      </div>
+      <MainPageComponent pokemons={pokemons} />
     </>
   );
 }

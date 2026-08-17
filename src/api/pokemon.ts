@@ -64,3 +64,9 @@ export function usePokemonList() {
 
     return ({ pokemons, loading});
 }
+
+export function filterByName(query: string, pokemons: Pokemon[]): Pokemon[] {
+    return pokemons.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(query.toLowerCase())
+    );
+}
